@@ -39,7 +39,7 @@ docker run --name userloginmanamentweb --network My-network -p 5001:5001 -p 5002
 
 ```bash
 # Run FreeRADIUS container
-docker run -d -t --name freeradius-server --network My-network -p 1812:1812/udp -p 1813:1813/udp -e DB_HOST=mysql-CT -e DB_PORT=3306 -e DB_USER=root -e DB_PASS=P@ssw0rd@1 -e DB_NAME=radius -e RAD_DEBUG=yes 2stacks/freeradius
+docker run -d -t --name freeradius-server --network My-network -p 1812:1812/udp -p 1813:1813/udp -e DB_HOST=mysql-CT -e DB_PORT=3306 -e DB_USER=root -e DB_PASS=P@ssw0rd@1 -e DB_NAME=radius -e RADIUS_KEY=tec -e RAD_CLIENTS=0.0.0.0 -e RAD_DEBUG=yes 2stacks/freeradius
 ```
 
 ## Notes
