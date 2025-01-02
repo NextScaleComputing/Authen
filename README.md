@@ -113,14 +113,14 @@ docker run --name mysql-CT --network My-network -e MYSQL_ROOT_PASSWORD=P@ssw0rd@
 
 ```powershell
 # Run the user management web application container
-docker run --name userloginmanamentweb `
-  --network My-network `
-  -p 5001:5001 -p 5002:5002 `
-  -e DB_HOST=mysql-CT `
-  -e DB_PORT=3306 `
-  -e DB_USER=root `
-  -e DB_PASS=P@ssw0rd@1 `
-  -e DB_NAME=radius `
+docker run --name userloginmanamentweb ^
+  --network My-network ^
+  -p 5001:5001 -p 5002:5002 ^
+  -e DB_HOST=mysql-CT ^
+  -e DB_PORT=3306 ^
+  -e DB_USER=root ^
+  -e DB_PASS=P@ssw0rd@1 ^
+  -e DB_NAME=radius ^
   jetchadaphon/userloginmanamentweb:latest
 ```
 
