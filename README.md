@@ -58,7 +58,7 @@ sudo docker volume create mysql-data
 sudo docker run --name mysql-CT --network My-network -e MYSQL_ROOT_PASSWORD=P@ssw0rd@1 -d -p 3306:3306 -v mysql-data:/var/lib/mysql mysql:latest
 ```
 
-#### Step 6: Run User Management Web Application
+#### Step 5: Run User Management Web Application
 
 ```bash
 # Run the user management web application container
@@ -73,7 +73,7 @@ sudo docker run --name userloginmanamentweb \
   jetchadaphon/userloginmanamentweb:latest
 ```
 
-#### Step 5: Run FreeRADIUS Server
+#### Step 6: Run FreeRADIUS Server
 
 ```bash
 # Run FreeRADIUS container
