@@ -78,7 +78,7 @@ sudo docker run --name userloginmanamentweb \
   -e DB_USER=root \
   -e DB_PASS=P@ssw0rd@1 \
   -e DB_NAME=radius \
-  -e Name_TEXT="TEC AUTHEN" \
+  -e Name_TEXT="AUTHEN" \
   --restart=always \
   jetchadaphon/userloginmanamentweb:latest
 
@@ -148,7 +148,7 @@ docker run --name userloginmanamentweb ^
   -e DB_USER=root ^
   -e DB_PASS=P@ssw0rd@1 ^
   -e DB_NAME=radius ^
-  -e Name_TEXT="TEC AUTHEN" ^
+  -e Name_TEXT="AUTHEN" ^
   --restart=always ^
   jetchadaphon/userloginmanamentweb:latest
 ```
