@@ -41,7 +41,9 @@ sudo docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -
 
 ```bash
 # Create a custom Docker network
-sudo docker network create My-network
+sudo docker network create \
+  --subnet=192.168.2.0/24 \
+  My-network
 ```
 
 #### Step 3: Create Docker Volume for MySQL
