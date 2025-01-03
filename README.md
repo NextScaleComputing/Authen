@@ -78,11 +78,26 @@ sudo docker run --name userloginmanamentweb \
   -e DB_USER=root \
   -e DB_PASS=P@ssw0rd@1 \
   -e DB_NAME=radius \
+  -e Name_TEXT="TEC AUTHEN" \
   --restart=always \
   jetchadaphon/userloginmanamentweb:latest
+
 ```
 
 ### Windows Version
+
+#### Step 0: Prerequisites
+
+1. Ensure you have administrative privileges to run commands.
+2. Install WSL2 and Docker Desktop from the [Docker website](https://www.docker.com/products/docker-desktop).
+3. Enable WSL2 integration in Docker Desktop settings.
+4. Install Portainer by running:
+
+```powershell
+# Install Portainer
+docker volume create portainer_data
+docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v \.\pipe\docker_engine:\\.\pipe\docker_engine -v portainer_data:/data portainer/portainer-ce:latest
+```
 
 #### Step 1: Install Docker Desktop and Portainer
 
@@ -110,7 +125,7 @@ docker volume create mysql-data
 
 ```powershell
 # Run MySQL container
-docker run --name mysql-CT --network My-network -e MYSQL_ROOT_PASSWORD=P@ssw0rd@1 -d -p 3306:3306 -v mysql-data:/var/lib/mysql mysql:latest
+docker run --name mysql-CT --network My-network -e MYSQL_ROOT_PASSWORD=P@ssw0rd@1 -d --restart=always -p 3306:3306 -v mysql-data:/var/lib/mysql mysql:latest
 ```
 
 
@@ -118,7 +133,7 @@ docker run --name mysql-CT --network My-network -e MYSQL_ROOT_PASSWORD=P@ssw0rd@
 
 ```powershell
 # Run FreeRADIUS container
-docker run -d -t --name freeradius-server --network My-network -p 1812:1812/udp -p 1813:1813/udp -e DB_HOST=mysql-CT -e DB_PORT=3306 -e DB_USER=root -e DB_PASS=P@ssw0rd@1 -e DB_NAME=radius -e RADIUS_KEY=tec -e RAD_CLIENTS=0.0.0.0 -e RAD_DEBUG=yes 2stacks/freeradius
+docker run -d -t --name freeradius-server --network My-network -p 1812:1812/udp -p 1813:1813/udp -e DB_HOST=mysql-CT -e DB_PORT=3306 -e DB_USER=root -e DB_PASS=P@ssw0rd@1 -e DB_NAME=radius -e RADIUS_KEY=tec -e RAD_CLIENTS=0.0.0.0 -e RAD_DEBUG=yes --restart=always 2stacks/freeradius
 ```
 
 #### Step 6: Run User Management Web Application
@@ -133,6 +148,8 @@ docker run --name userloginmanamentweb ^
   -e DB_USER=root ^
   -e DB_PASS=P@ssw0rd@1 ^
   -e DB_NAME=radius ^
+  -e Name_TEXT="TEC AUTHEN" ^
+  --restart=always ^
   jetchadaphon/userloginmanamentweb:latest
 ```
 
