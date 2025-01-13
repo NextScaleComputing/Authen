@@ -79,6 +79,7 @@ sudo docker run --name userloginmanamentweb \
   -e DB_PASS=P@ssw0rd@1 \
   -e DB_NAME=radius \
   -e Name_TEXT="AUTHEN" \
+  -e Color_TEXT="#38c5fc" \
   --restart=always \
   jetchadaphon/userloginmanamentweb:latest
 
@@ -150,6 +151,7 @@ docker run --name userloginmanamentweb ^
   -e DB_PASS=P@ssw0rd@1 ^
   -e DB_NAME=radius ^
   -e Name_TEXT="AUTHEN" ^
+  -e Color_TEXT="#38c5fc" ^
   --restart=always ^
   jetchadaphon/userloginmanamentweb:latest
 ```
